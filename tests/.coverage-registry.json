@@ -20,10 +20,10 @@
     "render-surface": "tui"
   },
   "counts": {
-    "total": 985,
+    "total": 972,
     "enumeratedByClass": {
-      "function": 675,
-      "audit": 99,
+      "function": 663,
+      "audit": 98,
       "scope": 11,
       "stage": 33,
       "hook": 18,
@@ -31,8 +31,8 @@
       "render-surface": 7
     },
     "coveredByClass": {
-      "function": 404,
-      "audit": 59,
+      "function": 396,
+      "audit": 56,
       "scope": 11,
       "stage": 11,
       "hook": 18,
@@ -116,18 +116,6 @@
     },
     {
       "unitClass": "audit",
-      "unitId": "CEREMONY_SET",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "audit",
       "unitId": "CHANGE_ACCEPTED",
       "minMechanism": "none",
       "coveredBy": [
@@ -150,10 +138,6 @@
         {
           "file": "tests/unit/t333-change-control.test.ts",
           "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
         }
       ],
       "status": "covered"
@@ -169,13 +153,8 @@
       "unitClass": "audit",
       "unitId": "DEPTH_CHANGED",
       "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
+      "coveredBy": [],
+      "status": "UNCOVERED"
     },
     {
       "unitClass": "audit",
@@ -501,13 +480,8 @@
       "unitClass": "audit",
       "unitId": "REVIEW_CLASS_CHANGED",
       "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
+      "coveredBy": [],
+      "status": "UNCOVERED"
     },
     {
       "unitClass": "audit",
@@ -913,10 +887,6 @@
         {
           "file": "tests/integration/t28-integration-test-strategy.test.ts",
           "mechanism": "sdk"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
         }
       ],
       "status": "covered"
@@ -1247,18 +1217,6 @@
       "minMechanism": "none",
       "coveredBy": [],
       "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:activeDirectiveStorageDir",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t248-steering-content-delivery.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
     },
     {
       "unitClass": "function",
@@ -1600,6 +1558,18 @@
     },
     {
       "unitClass": "function",
+      "unitId": "function:backfillComposedScopeRecords",
+      "minMechanism": "none",
+      "coveredBy": [
+        {
+          "file": "tests/integration/t341-composed-scope-durability.test.ts",
+          "mechanism": "cli"
+        }
+      ],
+      "status": "covered"
+    },
+    {
+      "unitClass": "function",
       "unitId": "function:BLOCKING_SENSOR_OVERRIDE_CHOICE",
       "minMechanism": "none",
       "coveredBy": [],
@@ -1714,72 +1684,6 @@
     },
     {
       "unitClass": "function",
-      "unitId": "function:CEREMONY_ENV",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:CEREMONY_FIELDS",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:CEREMONY_FLAGS",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:CEREMONY_KEYS",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:CEREMONY_SETTINGS",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:ceremonyOffClause",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:ceremonyOffList",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t213-scope-cost-summary.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:ceremonyPolicyValues",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
       "unitId": "function:CHANGE_CONTROL_FIELD",
       "minMechanism": "none",
       "coveredBy": [],
@@ -1877,10 +1781,6 @@
         {
           "file": "tests/unit/t335-change-control-review-summary.test.ts",
           "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
         }
       ],
       "status": "covered"
@@ -2147,10 +2047,6 @@
       "minMechanism": "none",
       "coveredBy": [
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t332-summary-authorization.test.ts",
           "mechanism": "cli"
         }
@@ -2321,10 +2217,6 @@
       "minMechanism": "none",
       "coveredBy": [
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t271-review-iteration-ceiling.test.ts",
           "mechanism": "cli"
         }
@@ -2337,6 +2229,18 @@
       "minMechanism": "none",
       "coveredBy": [],
       "status": "UNCOVERED"
+    },
+    {
+      "unitClass": "function",
+      "unitId": "function:composedFoldBack",
+      "minMechanism": "none",
+      "coveredBy": [
+        {
+          "file": "tests/unit/t340-composed-scope-record.test.ts",
+          "mechanism": "none"
+        }
+      ],
+      "status": "covered"
     },
     {
       "unitClass": "function",
@@ -2572,34 +2476,17 @@
     },
     {
       "unitClass": "function",
-      "unitId": "function:DEFAULT_SPACE",
+      "unitId": "function:DEFAULT_SCOPE",
       "minMechanism": "none",
       "coveredBy": [],
       "status": "UNCOVERED"
     },
     {
       "unitClass": "function",
-      "unitId": "function:defaultScope",
+      "unitId": "function:DEFAULT_SPACE",
       "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t340-default-scope-resolver.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:defaultScopeResolution",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t340-default-scope-resolver.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
+      "coveredBy": [],
+      "status": "UNCOVERED"
     },
     {
       "unitClass": "function",
@@ -2738,37 +2625,6 @@
     },
     {
       "unitClass": "function",
-      "unitId": "function:ENGINE_DIR",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:engineDir",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:engineDirFor",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
       "unitId": "function:EngineModeViolationError",
       "minMechanism": "none",
       "coveredBy": [],
@@ -2813,6 +2669,13 @@
     {
       "unitClass": "function",
       "unitId": "function:ensureDirSync",
+      "minMechanism": "none",
+      "coveredBy": [],
+      "status": "UNCOVERED"
+    },
+    {
+      "unitClass": "function",
+      "unitId": "function:envDefaultScope",
       "minMechanism": "none",
       "coveredBy": [],
       "status": "UNCOVERED"
@@ -2974,18 +2837,6 @@
       "minMechanism": "none",
       "coveredBy": [],
       "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:formatCeremony",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
     },
     {
       "unitClass": "function",
@@ -4030,13 +3881,6 @@
     },
     {
       "unitClass": "function",
-      "unitId": "function:LEGACY_SENSORS_DIR",
-      "minMechanism": "none",
-      "coveredBy": [],
-      "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
       "unitId": "function:legacyReviewAppendixEchoFields",
       "minMechanism": "none",
       "coveredBy": [
@@ -4128,6 +3972,13 @@
     },
     {
       "unitClass": "function",
+      "unitId": "function:loadComposedScopeRecords",
+      "minMechanism": "none",
+      "coveredBy": [],
+      "status": "UNCOVERED"
+    },
+    {
+      "unitClass": "function",
       "unitId": "function:loadGraph",
       "minMechanism": "none",
       "coveredBy": [
@@ -4201,6 +4052,10 @@
         {
           "file": "tests/unit/t244-scope-matrix-doc-sync.test.ts",
           "mechanism": "none"
+        },
+        {
+          "file": "tests/unit/t257-default-scope-resolver.test.ts",
+          "mechanism": "none"
         }
       ],
       "status": "covered"
@@ -4209,13 +4064,8 @@
       "unitClass": "function",
       "unitId": "function:loadScopeMetadataAll",
       "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
+      "coveredBy": [],
+      "status": "UNCOVERED"
     },
     {
       "unitClass": "function",
@@ -4317,6 +4167,18 @@
       "coveredBy": [
         {
           "file": "tests/integration/t327-stop-hook-subagent-inflight.test.ts",
+          "mechanism": "cli"
+        }
+      ],
+      "status": "covered"
+    },
+    {
+      "unitClass": "function",
+      "unitId": "function:materializeComposedScopeIdentities",
+      "minMechanism": "none",
+      "coveredBy": [
+        {
+          "file": "tests/integration/t341-composed-scope-durability.test.ts",
           "mechanism": "cli"
         }
       ],
@@ -4587,30 +4449,6 @@
     },
     {
       "unitClass": "function",
-      "unitId": "function:parseCeremonySetting",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:parseCeremonyStateLine",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
       "unitId": "function:parseChangeControl",
       "minMechanism": "none",
       "coveredBy": [
@@ -4640,6 +4478,18 @@
       "coveredBy": [
         {
           "file": "tests/unit/t107.test.ts",
+          "mechanism": "none"
+        }
+      ],
+      "status": "covered"
+    },
+    {
+      "unitClass": "function",
+      "unitId": "function:parseComposedScopeRecord",
+      "minMechanism": "none",
+      "coveredBy": [
+        {
+          "file": "tests/unit/t340-composed-scope-record.test.ts",
           "mechanism": "none"
         }
       ],
@@ -5336,10 +5186,6 @@
       "minMechanism": "none",
       "coveredBy": [
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t332-summary-authorization.test.ts",
           "mechanism": "cli"
         }
@@ -5441,6 +5287,18 @@
         },
         {
           "file": "tests/unit/t335-change-control-review-summary.test.ts",
+          "mechanism": "cli"
+        }
+      ],
+      "status": "covered"
+    },
+    {
+      "unitClass": "function",
+      "unitId": "function:recordChangeControlSet",
+      "minMechanism": "none",
+      "coveredBy": [
+        {
+          "file": "tests/unit/t333-change-control.test.ts",
           "mechanism": "cli"
         }
       ],
@@ -5680,6 +5538,18 @@
     },
     {
       "unitClass": "function",
+      "unitId": "function:renderComposedScopeRecord",
+      "minMechanism": "none",
+      "coveredBy": [
+        {
+          "file": "tests/unit/t340-composed-scope-record.test.ts",
+          "mechanism": "none"
+        }
+      ],
+      "status": "covered"
+    },
+    {
+      "unitClass": "function",
       "unitId": "function:renderSourcePathKeys",
       "minMechanism": "none",
       "coveredBy": [],
@@ -5815,30 +5685,6 @@
     },
     {
       "unitClass": "function",
-      "unitId": "function:resolveCeremony",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:resolveCeremonyPolicy",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
       "unitId": "function:resolveChangeControl",
       "minMechanism": "none",
       "coveredBy": [
@@ -5857,6 +5703,18 @@
         {
           "file": "tests/integration/t166-multi-repo-construction.test.ts",
           "mechanism": "cli"
+        }
+      ],
+      "status": "covered"
+    },
+    {
+      "unitClass": "function",
+      "unitId": "function:resolveDefaultScope",
+      "minMechanism": "none",
+      "coveredBy": [
+        {
+          "file": "tests/unit/t257-default-scope-resolver.test.ts",
+          "mechanism": "none"
         }
       ],
       "status": "covered"
@@ -6400,18 +6258,6 @@
     },
     {
       "unitClass": "function",
-      "unitId": "function:scopeCeremonyDefault",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t337-ceremony-policy.test.ts",
-          "mechanism": "none"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "function",
       "unitId": "function:scopeChangeControlDefault",
       "minMechanism": "none",
       "coveredBy": [
@@ -6475,10 +6321,6 @@
         {
           "file": "tests/unit/t225-scope-name-decoupling.test.ts",
           "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t257-default-scope-resolver.test.ts",
-          "mechanism": "none"
         }
       ],
       "status": "covered"
@@ -6508,18 +6350,6 @@
       "minMechanism": "none",
       "coveredBy": [],
       "status": "UNCOVERED"
-    },
-    {
-      "unitClass": "function",
-      "unitId": "function:sensorsReadDir",
-      "minMechanism": "none",
-      "coveredBy": [
-        {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
     },
     {
       "unitClass": "function",
@@ -8854,10 +8684,6 @@
         {
           "file": "tests/integration/t30-scope-stage-mapping.test.ts",
           "mechanism": "none"
-        },
-        {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
         }
       ],
       "status": "covered"
@@ -8995,10 +8821,6 @@
       "unitId": "workshop",
       "minMechanism": "none",
       "coveredBy": [
-        {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
         {
           "file": "tests/unit/t125-scope-files.test.ts",
           "mechanism": "cli"
@@ -9629,6 +9451,10 @@
           "mechanism": "cli"
         },
         {
+          "file": "tests/integration/t341-composed-scope-durability.test.ts",
+          "mechanism": "cli"
+        },
+        {
           "file": "tests/integration/t99-learnings-gate-flow.test.ts",
           "mechanism": "cli"
         },
@@ -10146,10 +9972,6 @@
           "mechanism": "cli"
         },
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t-kiro-ide-native-recovery.test.ts",
           "mechanism": "cli"
         },
@@ -10244,14 +10066,6 @@
         {
           "file": "tests/unit/t336-change-control-surfaces.test.ts",
           "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t340-default-scope-resolver.test.ts",
-          "mechanism": "cli"
         }
       ],
       "status": "covered"
@@ -10321,10 +10135,6 @@
           "mechanism": "cli"
         },
         {
-          "file": "tests/unit/t302-protocol-modules.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t324-team-unit-progress-gates.test.ts",
           "mechanism": "cli"
         },
@@ -10346,18 +10156,6 @@
       "coveredBy": [
         {
           "file": "tests/integration/t327-team-dispatcher.test.ts",
-          "mechanism": "cli"
-        }
-      ],
-      "status": "covered"
-    },
-    {
-      "unitClass": "subcommand",
-      "unitId": "aidlc-orchestrate wait",
-      "minMechanism": "cli",
-      "coveredBy": [
-        {
-          "file": "tests/unit/t341-orchestrate-wait.test.ts",
           "mechanism": "cli"
         }
       ],
@@ -10714,10 +10512,6 @@
       "unitId": "aidlc-state lookup",
       "minMechanism": "cli",
       "coveredBy": [
-        {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
         {
           "file": "tests/unit/t17.test.ts",
           "mechanism": "cli"
@@ -11079,6 +10873,18 @@
     },
     {
       "unitClass": "subcommand",
+      "unitId": "aidlc-utility change-control",
+      "minMechanism": "cli",
+      "coveredBy": [
+        {
+          "file": "tests/unit/t333-change-control.test.ts",
+          "mechanism": "cli"
+        }
+      ],
+      "status": "covered"
+    },
+    {
+      "unitClass": "subcommand",
       "unitId": "aidlc-utility claim",
       "minMechanism": "cli",
       "coveredBy": [
@@ -11155,23 +10961,11 @@
           "mechanism": "sdk"
         },
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t231-handler-additions.test.ts",
           "mechanism": "cli"
         },
         {
           "file": "tests/unit/t27.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t333-change-control.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
           "mechanism": "cli"
         }
       ],
@@ -11185,10 +10979,6 @@
         {
           "file": "tests/unit/t231-handler-additions.test.ts",
           "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
         }
       ],
       "status": "covered"
@@ -11200,10 +10990,6 @@
       "coveredBy": [
         {
           "file": "tests/unit/t231-handler-additions.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
           "mechanism": "cli"
         }
       ],
@@ -11267,6 +11053,10 @@
           "mechanism": "cli"
         },
         {
+          "file": "tests/integration/t341-composed-scope-durability.test.ts",
+          "mechanism": "cli"
+        },
+        {
           "file": "tests/unit/t103.test.ts",
           "mechanism": "cli"
         },
@@ -11316,10 +11106,6 @@
         },
         {
           "file": "tests/unit/t337-source-boundary-reason.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t340-default-scope-resolver.test.ts",
           "mechanism": "cli"
         },
         {
@@ -11495,10 +11281,6 @@
           "mechanism": "cli"
         },
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t191-composed-scope-write.test.ts",
           "mechanism": "cli"
         },
@@ -11512,14 +11294,6 @@
         },
         {
           "file": "tests/unit/t333-change-control.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t340-default-scope-resolver.test.ts",
           "mechanism": "cli"
         }
       ],
@@ -11659,10 +11433,6 @@
       "minMechanism": "cli",
       "coveredBy": [
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t214-routing-cost-strings.test.ts",
           "mechanism": "cli"
         },
@@ -11676,10 +11446,6 @@
         },
         {
           "file": "tests/unit/t333-change-control.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
           "mechanism": "cli"
         },
         {
@@ -11834,19 +11600,11 @@
           "mechanism": "sdk"
         },
         {
-          "file": "tests/integration/t339-classic-upgrade-inflight.test.ts",
-          "mechanism": "cli"
-        },
-        {
           "file": "tests/unit/t27.test.ts",
           "mechanism": "cli"
         },
         {
           "file": "tests/unit/t333-change-control.test.ts",
-          "mechanism": "cli"
-        },
-        {
-          "file": "tests/unit/t338-ceremony-verb.test.ts",
           "mechanism": "cli"
         },
         {
