@@ -32,13 +32,17 @@ The workflow:
    PSScriptAnalyzer;
 3. builds native binaries for Linux, macOS, and Windows;
 4. runs native and installer smoke tests;
-5. creates `aidlc-runtime-X.Y.Z.tar.gz`, installers, `version.json`, and
-   `checksums.txt`;
+5. creates the out-of-band manual-copy `aidlc-copy-runtime-X.Y.Z.tar.gz` and
+   its `.sha256` sidecar, the manifest-listed native
+   `aidlc-runtime-X.Y.Z.tar.gz`, installers, `version.json`, and `checksums.txt`;
 6. verifies the staged release inventory and checksums.
 
-The release manifest records the tag ref and exact source commit. The runtime
-archive name includes the release version so users can download the matching
-distribution explicitly.
+The release manifest records the tag ref and exact source commit. Both runtime
+archive names include the release version. Manual-copy users download
+`aidlc-copy-runtime-X.Y.Z.tar.gz`; native installers select
+`aidlc-runtime-X.Y.Z.tar.gz`. The copy archive stays outside the manifest and
+main checksum inventory so 2.8.x clients retain forward-compatible update
+discovery; its sidecar and release provenance authenticate it independently.
 
 ## Provenance
 
@@ -71,7 +75,7 @@ the publisher stages another candidate.
 The planner renders notes from changes since the previous preview. Callable
 CI gates the authorized commit before the normal release build chain.
 `AIDLC_BUILD_VERSION` stamps the preview id into projections, binaries,
-`version.json`, and the versioned runtime archive while the source tree keeps
+`version.json`, and both versioned runtime archives while the source tree keeps
 its stable `x.y.z` version. The preview publisher verifies a staging draft,
 creates an annotated tag that records the source repository and commit, then
 publishes the draft as a prerelease with `make_latest: false`; stable
@@ -137,6 +141,7 @@ git push origin vX.Y.Z
 
 3. Monitor the `Release` workflow.
 4. Confirm that the GitHub Release contains the binaries, installers,
+   `aidlc-copy-runtime-X.Y.Z.tar.gz`, its `.sha256` sidecar,
    `aidlc-runtime-X.Y.Z.tar.gz`, `version.json`, `checksums.txt`, and the
    provenance bundle.
 
