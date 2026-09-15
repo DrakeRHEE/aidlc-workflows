@@ -2057,6 +2057,27 @@ describe("t243 release lifecycle", () => {
       source.replace(marker, `PACKAGED_VERSION='${preview}'`),
       { mode: 0o755 },
     );
+    // The child PATH below is deliberately bare so the packaged installer proves
+    // it needs nothing beyond POSIX tools. That also drops tests/fixtures/bin,
+    // so `command -v gh` finds the runner's real GitHub CLI, whose attestation
+    // flags make install.sh verify the fixture bundle for real and fail. Hand
+    // the installer the fixture verifier through AIDLC_GH_BIN instead, spelled
+    // with the absolute Bun path so it resolves under that PATH, and log every
+    // call so the test proves provenance verification ran rather than the
+    // installer degrading to checksums because its help probe failed.
+    const ghDir = temp("aidlc-t243-packaged-installer-gh-");
+    const ghCalls = join(ghDir, "calls.log");
+    const ghBin = join(ghDir, "gh");
+    writeFileSync(
+      ghBin,
+      [
+        "#!/bin/sh",
+        `printf '%s\\n' "$*" >>${JSON.stringify(ghCalls)}`,
+        `exec ${JSON.stringify(BUN)} ${JSON.stringify(FIXTURE_GH)} "$@"`,
+        "",
+      ].join("\n"),
+      { mode: 0o755 },
+    );
     const server = serveReleaseFixture(release);
     const machine = temp("aidlc-t243-packaged-installer-machine-");
     try {
@@ -2074,6 +2095,7 @@ describe("t243 release lifecycle", () => {
           NO_PROXY: "127.0.0.1",
           AIDLC_INSTALL_ROOT: machine,
           AIDLC_BIN_DIR: join(machine, "bin"),
+          AIDLC_GH_BIN: ghBin,
         },
         stdout: "pipe",
         stderr: "pipe",
@@ -2087,6 +2109,13 @@ describe("t243 release lifecycle", () => {
       expect(stdout).toContain(`installed AI-DLC ${preview}`);
       expect(server.requests).toContain(`/download/v${preview}/version.json`);
       expect(server.requests).not.toContain("/latest/download/version.json");
+      // Help probe, then the two verify passes install.sh runs: bare, and with
+      // the manifest's source ref and digest.
+      const calls = readFileSync(ghCalls, "utf-8").trim().split("\n");
+      expect(calls[0]).toBe("attestation verify --help");
+      expect(calls.filter((call) => call.startsWith("attestation verify ") && !call.includes("--help")))
+        .toHaveLength(2);
+      expect(calls.at(-1)).toContain("--source-ref refs/heads/main --source-digest ");
     } finally {
       server.stop();
     }
@@ -3902,6 +3931,7 @@ describe("t243 projection channel", () => {
           "sha256:f2affb8b34499f057284852456cb8a24ae586b8e816595bf98346141f3516281",
           "sha256:d397e69ac701a663158ccb43fda3f0a23c86365f29419a8c9a5e3287a490370d",
           "sha256:87e4c1237816c477096f2291f1204885692bf39e487afb3d9f67cf7e9b2c84fb",
+          "sha256:1d51ae4ca4f74f842336dce75bc66bb4bbf55ce2de7c802ab059504cca99fd7b",
         ],
       },
       codex: {
@@ -3921,6 +3951,9 @@ describe("t243 projection channel", () => {
           "sha256:b3d4d0d178a01591629dbf79083b00e7a3ad42f59f79cbfc88d05b7615704a70",
           "sha256:d9be36630b49183203ae4d97946c243e3b8840202ee6f080c738e0f01343e33a",
           "sha256:cc3212fc7335018158882cbaa141ac6fd02cee53bbceb00bd185f416fa06ff8f",
+          "sha256:412776ee4595c453511a911e06c7729285bb5338b30584f8570908b273e27296",
+          "sha256:dd650e54fb2e645b6f30002f91f8f6f174fe34550295582f5b6a95356edaed77",
+          "sha256:87563548299dd2a0c1fcd3cde480b612bd1ec767a2550dbc05a6a041a3d7f522",
         ],
       },
       kiro: {
@@ -3935,6 +3968,9 @@ describe("t243 projection channel", () => {
           "sha256:e85a5d7ce13b676282dc99572f89c81256f2dada50b1881f4c9641e61339f5a4",
           "sha256:67a57eddd94d613590d34ec2d0181398123d9e2d9f6382eb36c62233ce02b6f9",
           "sha256:3aea80a2afde8bb2a222b329bcfc2855b4207a53f7fbfbc3abbfb4aadbafc53b",
+          "sha256:1abeb3cb19943bc1537c413dc45298c43a14ce7544444c88c13b53ea48a607a6",
+          "sha256:ecb68f08789258e77c81488e98dd1632b607b567a2424311c4dcdc30ce3e768f",
+          "sha256:9ad7daa07cbafe9f149311b679281eecd991d2ec77787fc7751226ea0622522b",
         ],
       },
       "kiro-ide": {
@@ -3949,6 +3985,9 @@ describe("t243 projection channel", () => {
           "sha256:e01ac1caf52a59d25faf859a03cfb65b803853c99298bbcbc80ef565e7628de6",
           "sha256:990d80744904bfa3f9923b8a04bbb2e69b454154346915edca1e1a4ef7e31c07",
           "sha256:025c596b2f44b688a329d419b5cd39fd2ee2a6d6cae4e6491dc6cd0f663c04ea",
+          "sha256:68be79dc053e88931557484ef37b7f63248cddcf02cb44db89c5bd2522980967",
+          "sha256:6735312a6ece44f0ba65b949ede2a241669fa422db584dadb2a9ed57e4e43be7",
+          "sha256:94f27a88ddba31149876da0609e0eb9a36ce153f52f27898579c846daec2ff59",
         ],
       },
     };
