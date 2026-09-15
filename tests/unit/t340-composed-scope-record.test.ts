@@ -101,6 +101,38 @@ describe("t340 record format round-trip", () => {
     expect(parsed.identity).not.toContain(END);
     expect(parsed.identity).not.toContain("```json");
   });
+
+  // A scope owns its ceremony (#1151): sensors, learnings, and
+  // summary_confirmation are frontmatter, so they live in the identity half and
+  // ride the record for free — projection strips, back-fill appends, and neither
+  // re-renders frontmatter. Pinned by key name rather than left to the general
+  // verbatim assertion above, because a projection that re-rendered frontmatter
+  // would drop exactly these and turn a scope's approved ceremony back on
+  // silently, which is the class of loss this record exists to prevent.
+  test("scope-owned ceremony switches survive the round trip", () => {
+    const withCeremony = [
+      "---",
+      "name: quiet-feature",
+      "depth: Standard",
+      "skeleton: off",
+      "sensors: off",
+      "learnings: off",
+      "summary_confirmation: off",
+      "keywords: []",
+      "description: every ceremony switch turned off",
+      "---",
+      "",
+      "# quiet-feature",
+      "",
+    ].join("\n");
+    const record = renderComposedScopeRecord(withCeremony, STAGES);
+    const parsed = parseComposedScopeRecord(record, "aidlc/scopes/quiet-feature.md");
+    for (const key of ["skeleton: off", "sensors: off", "learnings: off", "summary_confirmation: off"]) {
+      expect(parsed.identity).toContain(key);
+    }
+    expect(parsed.identity.trimEnd()).toBe(withCeremony.trimEnd());
+    expect(renderComposedScopeRecord(parsed.identity, parsed.stages)).toBe(record);
+  });
 });
 
 // The synthetic identity above is convenient but it is the test author's guess
